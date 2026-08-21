@@ -74,7 +74,7 @@ const TRACKS = [
   },
 ];
 
-const fmt = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 
 export default function App() {
   const [activeId, setActiveId] = useState(1);
@@ -84,7 +84,7 @@ export default function App() {
   const [shuffle, setShuffle] = useState(false);
   const [repeat, setRepeat] = useState(true);
 
-  const track = useMemo(() => TRACKS.find((t) => t.id === activeId), [activeId]);
+  const track = useMemo(() => TRACKS.find((t) => t.id === activeId) ?? TRACKS[0], [activeId]);
   const idx = TRACKS.findIndex((t) => t.id === activeId);
 
   useEffect(() => {
@@ -102,18 +102,18 @@ export default function App() {
     return () => clearInterval(t);
   }, [playing, track, idx]);
 
-  const selectTrack = (id) => {
+  const selectTrack = (id: number) => {
     setActiveId(id);
     setElapsed(0);
     setPlaying(true);
   };
 
-  const skip = (dir) => {
+  const skip = (dir: number) => {
     const next = TRACKS[(idx + dir + TRACKS.length) % TRACKS.length].id;
     selectTrack(next);
   };
 
-  const toggleLike = (id) =>
+  const toggleLike = (id: number) =>
     setLiked((l) => (l.includes(id) ? l.filter((x) => x !== id) : [...l, id]));
 
   const pct = (elapsed / track.duration) * 100;
