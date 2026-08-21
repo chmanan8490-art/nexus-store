@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+:root {
+  --background: 37 32% 93%;
+  --foreground: 222 29% 18%;
+  --border: 34 20% 82%;
+  --input: 34 20% 82%;
+  --ring: 15 58% 52%;
+  --card: 38 37% 97%;
+  --card-foreground: 222 29% 18%;
+  --primary: 15 58% 52%;
+  --primary-foreground: 37 32% 97%;
+  --secondary: 142 15% 78%;
+  --secondary-foreground: 150 19% 24%;
+  --muted: 35 22% 87%;
+  --muted-foreground: 220 12% 42%;
+  --accent: 142 15% 78%;
+  --accent-foreground: 150 19% 24%;
+  --destructive: 2 57% 45%;
+  --destructive-foreground: 37 32% 97%;
+  --popover: 38 37% 97%;
+  --popover-foreground: 222 29% 18%;
+  --sidebar: 222 29% 18%;
+  --sidebar-foreground: 37 32% 93%;
+  --sidebar-border: 220 20% 27%;
+  --sidebar-primary: 15 58% 52%;
+  --sidebar-primary-foreground: 37 32% 97%;
+  --sidebar-accent: 220 21% 25%;
+  --sidebar-accent-foreground: 37 32% 93%;
+  --chart-1: 15 58% 52%;
+  --chart-2: 142 15% 49%;
+  --chart-3: 32 47% 61%;
+  --chart-4: 222 29% 38%;
+  --chart-5: 18 35% 70%;
+  --app-font-sans: 'DM Sans', sans-serif;
+  --app-font-serif: 'Playfair Display', Georgia, serif;
+  --app-font-mono: 'DM Mono', monospace;
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+}
+
+* { border-color: hsl(var(--border)); }
+html { background: hsl(var(--background)); }
+body { margin: 0; background: hsl(var(--background)); color: hsl(var(--foreground)); font-family: var(--app-font-sans); }
+button, input { font: inherit; }
+button { cursor: pointer; }
+::selection { background: hsl(var(--primary) / .2); }
+
+.grain::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 20; opacity: .045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+.editorial-serif { font-family: var(--app-font-serif); }
+.mono { font-family: var(--app-font-mono); letter-spacing: .06em; }
+.fade-up { animation: fadeUp .7s cubic-bezier(.2,.7,.2,1) both; }
+.delay-1 { animation-delay: .08s; } .delay-2 { animation-delay: .16s; } .delay-3 { animation-delay: .24s; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.image-zoom { transition: transform .65s cubic-bezier(.2,.7,.2,1); }
+.product-card:hover .image-zoom { transform: scale(1.045); }
+.overlay-in { animation: overlayIn .25s ease both; }
+@keyframes overlayIn { from { opacity: 0; } to { opacity: 1; } }
+.slide-in { animation: slideIn .35s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes slideIn { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: translateX(0); } }
+.chart-bar { animation: grow .8s cubic-bezier(.2,.7,.2,1) both; transform-origin: bottom; }
+@keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }

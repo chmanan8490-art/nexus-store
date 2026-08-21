@@ -1,0 +1,32 @@
+Build a high-end, production-ready, fully interactive E-Commerce & Admin Web Application named "Nexus Commerce".
+
+1. ARCHITECTURE & DESIGN SYSTEM:
+   - Framework: React / Next.js with Tailwind CSS, Lucide Icons, and Sonner toast notifications.
+   - Aesthetic: Ultra-realistic, minimalist luxury lifestyle brand (warm neutral stone background, terracotta accents, sage green touches, dark slate text, sleek serif/sans-serif typography).
+   - Global Navigation: Header with a visible switch button to instantly toggle between "Customer Storefront" and "Admin Dashboard".
+
+2. REAL PRODUCTS DATABASE (12+ Items):
+   - Include 12 detailed products across Tech, Apparel, Home, and Lifestyle.
+   - NO solid colored placeholders. Use real, high-resolution Unsplash image URLs for product photos.
+   - Attributes per product: ID, Title, Category, Price, Rating (e.g., 4.9 ★), Description, Specs list, Stock status ("In Stock" / "Low Stock" / "Out of Stock"), and Multi-image gallery URLs.
+
+3. CUSTOMER STOREFRONT FEATURES:
+   - Header: Logo ("Nexus"), Category links (All, Tech, Apparel, Home, Lifestyle), Search bar, and Bag icon with a dynamic badge counter.
+   - Hero Section: Split layout with editorial headline ("Objects built to outlive trends"), CTA button, and high-res feature image with editor's pick badge.
+   - Interactive Catalog Grid: Filter tabs, price range slider, real product images with subtle hover zoom, star ratings, stock badges, and an "Add to Bag" button.
+   - Quick View Modal: Clicking a product card opens a modal showing high-res gallery, detailed specifications, quantity selector (+/-), and "Add to Bag" action.
+   - Slide-over Shopping Cart Drawer:
+     * Live item counter and toast alert when adding items.
+     * Quantity adjustment and item removal.
+     * Working Promo Code input (applying "NEXUS10" gives 10% discount).
+     * Subtotal, Tax, Shipping, and Final Total calculation.
+   - Checkout Flow: "Proceed to Checkout" modal collecting customer info, placing the order, resetting the cart, and adding the order to the Admin Panel state.
+
+4. ADMIN ANALYTICS DASHBOARD FEATURES:
+   - KPI Stat Cards: Total Revenue ($54,200), Total Orders, Active Customers, Conversion Rate.
+   - Revenue Chart: Interactive SVG/CSS bar chart displaying weekly performance.
+   - Inventory Management Table: Interactive list of all 12 products with price, category, and working stock toggle button (In Stock <-> Out of Stock).
+   - Recent Orders Table: Display customer orders with real-time status badges (Completed, Processing, Shipped).
+
+5. STATE MANAGEMENT:
+   - Synchronize Storefront actions with Admin state so placing an order in the store immediately increments revenue and adds a record to the Admin panel.

@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Nexus Commerce"
+description = "A luxury commerce storefront and synchronized admin dashboard for discovering well-made objects, managing a shopping bag, completing checkout, and tracking revenue and inventory."
+version = "1.0.0"
+id = "artifacts/nexus-commerce"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18440
+
+[services.development]
+run = "pnpm --filter @workspace/nexus-commerce run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/nexus-commerce", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/nexus-commerce/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18440"
+BASE_PATH = "/"

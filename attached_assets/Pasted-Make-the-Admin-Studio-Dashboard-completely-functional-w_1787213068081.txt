@@ -1,0 +1,28 @@
+Make the Admin/Studio Dashboard completely functional with full interactive sidebar navigation and dynamic state management:
+
+1. SIDEBAR NAVIGATION & ROUTING:
+   - Make all sidebar links fully clickable and functional: Overview/Analytics, Products & Inventory, Orders Management, and Store Settings.
+   - Use active state highlighting on the selected sidebar item.
+   - Seamlessly switch main panel content without page reloads or broken links.
+
+2. OVERVIEW & ANALYTICS VIEW:
+   - KPI metrics cards (Total Revenue, Orders, Average Order Value, Conversion Rate) that dynamically recalculate when new orders are placed.
+   - Interactive SVG sales chart with weekly/monthly range toggle.
+   - Quick action widgets: Recent Activity feed and Low Stock alerts.
+
+3. PRODUCTS & INVENTORY MANAGEMENT VIEW:
+   - Full product management table displaying image thumbnails, title, category, price, and stock levels.
+   - Working "Add New Product" modal form with fields for title, category, price, stock quantity, and Unsplash image URL.
+   - Interactive stock status toggle button (In Stock <-> Sold Out) that instantly updates the Storefront product availability.
+   - Action buttons to Edit product details or Delete products from the store database.
+
+4. ORDERS MANAGEMENT VIEW:
+   - List all customer orders placed via the Storefront checkout modal.
+   - Display Order ID, Customer Name, Items purchased, Total Amount, and Date.
+   - Working status dropdown (Processing, Shipped, Delivered, Refunded) allowing admins to update order progress live.
+   - Clickable order details drawer showing full customer shipping info and item breakdown.
+
+5. GLOBAL STATE SYNCHRONIZATION:
+   - Connect Storefront actions directly to the Admin state:
+     * When a customer places an order on the Storefront, instantly add it to the Orders tab and increase Total Revenue in Analytics.
+     * When an admin marks an item "Sold Out" in Inventory, automatically change its button to "Unavailable" on the Storefront.
